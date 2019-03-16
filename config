@@ -1,0 +1,182 @@
+### dVariables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod1
+# Home row direction keys, like vim
+set $left c
+set $down t
+set $up s
+set $right r
+
+# Screenshot
+set $KEY_SCREENSHOT 'Print'
+set $KEY_SCREENSHOT_ALT 'Ctrl+Print'
+
+# Idle
+set $LOCK_COMMAND 'swaylock -f -i .config/background/blured.jpg --font incosolata --inside-color "#002b36cc" --ring-color "#002b36cc" -n'
+set $SLEEP_COMMAND 'systemctl hybrid-sleep'
+
+# Your preferred terminal emulator
+set $term termite
+# Your preferred application launcher
+# Note: it's recommended that you pass the final command to sway
+set $menu 'dmenu_path | dmenu -b -nb "#002b36" | xargs swaymsg exec'
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in __DATADIR__/backgrounds/sway/)
+output * bg ~/.config/background/digital_space_universe_4k_8k-2560x1600.jpg fill
+
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 600 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+bindsym $mod+p exec "thunar"
+
+
+# Lock
+bindsym Ctrl+Escape exec $LOCK_COMMAND
+
+# Window borders
+new_window pixel 1
+hide_edge_borders both
+
+gaps inner 0
+gaps outer 0
+
+font incosolata:DejaVu Sans Mono 8
+focus_follows_mouse no
+
+# Floating windows
+for_window [class="Xmessage"] floating enable
+for_window [class="Nautilus"] floating enable
+for_window [class="Thunar"] floating enable
+
+# Basics:
+#
+    # start a terminal
+    bindsym $mod+Return exec $term
+
+    # kill focused window
+    bindsym $mod+Shift+y kill
+
+    # start your launcher
+    bindsym $mod+i exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # reload the configuration file
+    bindsym $mod+Shift+0xe8 reload
+
+    # exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+E exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'"
+
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # _move_ the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+    # switch to workspace
+    bindsym $mod+0x22 workspace 1
+    bindsym $mod+0xab workspace 2
+    bindsym $mod+0xbb workspace 3
+    bindsym $mod+0x28 workspace 4
+    bindsym $mod+0x29 workspace 5
+    bindsym $mod+0x40 workspace 6
+    bindsym $mod+0x2b workspace 7
+    bindsym $mod+0x2d workspace 8
+    bindsym $mod+0x2f workspace 9
+    bindsym $mod+0x2a workspace 10
+
+    # move focused container to workspace
+    bindsym $mod+Shift+0x22 move container to workspace 1
+    bindsym $mod+Shift+0xab move container to workspace 2
+    bindsym $mod+Shift+0xbb move container to workspace 3
+    bindsym $mod+Shift+0x28 move container to workspace 4
+    bindsym $mod+Shift+0x29 move container to workspace 5
+    bindsym $mod+Shift+0x40 move container to workspace 6
+    bindsym $mod+Shift+0x2b move container to workspace 7
+    bindsym $mod+Shift+0x2d move container to workspace 8
+    bindsym $mod+Shift+0x2f move container to workspace 9
+    bindsym $mod+Shift+0x2a move container to workspace 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+h splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    # bindsym $mod+b layout stacking
+    bindsym $mod+0xe9 layout tabbed
+    bindsym $mod+b layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # move focus to the parent container
+    bindsym $mod+g focus parent
+
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+x mode "resize"
+
+include ~/.config/sway/config.d/*.conf
+include /etc/sway/config.d/*
