@@ -9,8 +9,8 @@ set $up s
 set $right r
 
 # Screenshot
-set $KEY_SCREENSHOT 'Print'
-set $KEY_SCREENSHOT_ALT 'Ctrl+Print'
+set $KEY_SCREENSHOT Print
+set $KEY_SCREENSHOT_ALT Ctrl+Print
 
 # Idle
 set $LOCK_COMMAND 'swaylock -f -i .config/background/blured.jpg --font incosolata --inside-color "#002b36cc" --ring-color "#002b36cc" -n'
@@ -44,11 +44,16 @@ font incosolata:DejaVu Sans Mono 8
 focus_follows_mouse no
 
 exec --no-startup-id "mako"
+bindsym Ctrl+Space exec "makoctl dismiss"
 
 # Floating windows
 for_window [class="Xmessage"] floating enable
 for_window [class="Nautilus"] floating enable
+for_window [class="mobilityVanet"] floating enable
+for_window [class="dolphin"] floating enable
 for_window [class="Thunar"] floating enable
+for_window [class="okular"] floating enable
+for_window [class="Yubico Authenticator"] floating enable
 
 # Basics:
 #
@@ -174,6 +179,13 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+x mode "resize"
+
+input * {
+    xkb_layout fr,fr,us
+    xkb_variant bepo,oss,
+    xkb_options grp:shift_caps_toggle
+}
+
 
 include ~/.config/sway/config.d/*.conf
 include /etc/sway/config.d/*
