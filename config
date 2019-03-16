@@ -25,7 +25,7 @@ set $menu 'dmenu_path | dmenu -b -nb "#002b36" | xargs swaymsg exec'
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in __DATADIR__/backgrounds/sway/)
-output * bg ~/.config/background/digital_space_universe_4k_8k-2560x1600.jpg fill
+output * bg ~/.config/themes/digital_space_universe_4k_8k-2560x1600.jpg fill
 
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
