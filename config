@@ -18,15 +18,14 @@ set $SLEEP_COMMAND 'systemctl hybrid-sleep'
 
 # Your preferred terminal emulator
 set $term termite
+
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu 'dmenu_path | dmenu -b -nb "#002b36" | xargs swaymsg exec'
+# set $menu 'dmenu_path | dmenu -b -nb "#002b36" | xargs swaymsg exec'
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in __DATADIR__/backgrounds/sway/)
 output * bg ~/.config/themes/digital_space_universe_4k_8k-2560x1600.jpg fill
-
 
 bindsym $mod+p exec "thunar"
 
