@@ -13,8 +13,8 @@ set $KEY_SCREENSHOT Print
 set $KEY_SCREENSHOT_ALT Ctrl+Print
 
 # Idle
-set $LOCK_COMMAND 'swaylock -f -i .config/background/blured.jpg --font incosolata --inside-color "#002b36cc" --ring-color "#002b36cc" -n'
-set $SLEEP_COMMAND 'systemctl hybrid-sleep'
+set $LOCK_COMMAND 'swaylock -f -i .config/themes/blured.jpg --font incosolata --inside-color "#002b36cc" --ring-color "#002b36cc" -n'
+set $SLEEP_COMMAND 'systemctl sleep'
 
 # Your preferred terminal emulator
 set $term termite
