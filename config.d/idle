@@ -1,7 +1,7 @@
 # Idle
 exec swayidle \
-    timeout 300 '$LOCK_COMMAND' \
+    timeout 300 $LOCK_COMMAND \
     timeout 600 'swaymsg "output * dpms off"' \
        resume 'swaymsg "output * dpms on"' \
-    timeout 2700 '$SLEEP_COMMAND' \
-    before-sleep '$LOCK_COMMAND'
+    timeout 2700 $SLEEP_COMMAND \
+    before-sleep $LOCK_COMMAND
