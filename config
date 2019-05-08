@@ -115,6 +115,17 @@ for_window [class="Yubico Authenticator"] floating enable
     bindsym $mod+0x2d workspace 8
     bindsym $mod+0x2f workspace 9
     bindsym $mod+0x2a workspace 10
+    
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
 
     # move focused container to workspace
     bindsym $mod+Shift+0x22 move container to workspace 1
@@ -178,6 +189,9 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+x mode "resize"
+
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5%"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%" 
 
 input * {
     xkb_layout fr,fr,us

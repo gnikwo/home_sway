@@ -20,17 +20,13 @@ workspace 10 output $monitor-3
 workspace 0 output $monitor-3
 workspace kodi output $monitor-3
 
-for_window [class="vlc"] workspace 10
-assign [class="vlc"] 10
 for_window [class="Kodi"] workspace kodi
 assign [class="Kodi"] kodi
 
 exec --no-startup-id "swaymsg 'workspace 1; exec termite'"
 exec --no-startup-id "swaymsg 'workspace 5; exec firefox'"
-exec --no-startup-id "swaymsg 'workspace 7; exec quasselclient'"
 exec --no-startup-id "swaymsg 'workspace 7; exec telegram-desktop'"
-exec --no-startup-id "swaymsg 'workspace 8; exec signal-desktop'"
+exec --no-startup-id "swaymsg 'workspace 7; exec signal-desktop'"
 exec --no-startup-id "swaymsg 'workspace 8; exec riot-desktop'"
 exec --no-startup-id "swaymsg 'workspace 0; exec thunar'"
-exec --no-startup-id "swaymsg 'workspace kodi; exec kodi'"
 
