@@ -13,6 +13,7 @@ set $KEY_SCREENSHOT Print
 set $KEY_SCREENSHOT_ALT Ctrl+Print
 
 # Idle
+set $TIMEOUT_COMMAND 'zsh -c "ssh-add -D"'
 set $LOCK_COMMAND 'zsh -c "ssh-add -D"; swaylock -f -i .config/themes/blured.jpg --font incosolata --inside-color "#002b36cc" --ring-color "#002b36cc" -n'
 set $SLEEP_COMMAND 'systemctl hybrid-sleep'
 
