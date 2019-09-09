@@ -30,6 +30,8 @@ output * bg ~/.config/themes/digital_space_universe_4k_8k-2560x1600.jpg fill
 
 bindsym $mod+p exec "thunar"
 
+#xwayland disable
+
 # Lock
 bindsym Ctrl+Escape exec $LOCK_COMMAND
 
@@ -199,7 +201,6 @@ input * {
     xkb_variant bepo,oss,
     xkb_options grp:shift_caps_toggle
 }
-
 
 include ~/.config/sway/config.d/*.conf
 include /etc/sway/config.d/*
