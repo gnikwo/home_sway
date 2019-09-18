@@ -56,6 +56,7 @@ for_window [class="dolphin"] floating enable
 for_window [class="Thunar"] floating enable
 for_window [class="okular"] floating enable
 for_window [class="Yubico Authenticator"] floating enable
+for_window [class="Xeyes"] floating enable
 
 # Basics:
 #
@@ -118,7 +119,7 @@ for_window [class="Yubico Authenticator"] floating enable
     bindsym $mod+0x2d workspace 8
     bindsym $mod+0x2f workspace 9
     bindsym $mod+0x2a workspace 10
-    
+
     bindsym $mod+1 workspace 1
     bindsym $mod+2 workspace 2
     bindsym $mod+3 workspace 3
@@ -194,7 +195,7 @@ mode "resize" {
 bindsym $mod+x mode "resize"
 
 bindsym XF86AudioLowerVolume exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5%"
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%" 
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%"
 
 input * {
     xkb_layout fr,fr,us

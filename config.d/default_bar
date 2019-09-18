@@ -6,6 +6,6 @@ bar {
         inactive_workspace #002b36 #002b36cc #FFFFFF
         focused_workspace  #FFFFFF #002b36cc #FFFFFF
     }
-    status_command i3status -c ~/.config/i3/i3status.conf
+    status_command i3status -c ~/.config/sway/i3status.conf
     position top
 }
