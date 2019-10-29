@@ -14,7 +14,7 @@ set $KEY_SCREENSHOT_ALT Ctrl+Print
 
 # Idle
 set $TIMEOUT_COMMAND 'zsh -c "ssh-add -D"'
-set $LOCK_COMMAND 'zsh -c "ssh-add -D"; swaylock -f -i .config/themes/blured.jpg --font incosolata --inside-color "#002b36cc" --ring-color "#002b36cc" -n'
+set $LOCK_COMMAND 'zsh -c "ssh-add -D"; swaylock -C ~/.config/sway/swaylock/config'
 set $SLEEP_COMMAND 'systemctl hybrid-sleep'
 
 # Your preferred terminal emulator
@@ -45,8 +45,10 @@ gaps outer 0
 font incosolata:DejaVu Sans Mono 8
 focus_follows_mouse no
 
+exec --no-startup-id "waybar -c ~/.config/sway/waybar/config -s ~/.config/sway/waybar/style.css"
 exec --no-startup-id "mako"
 bindsym Ctrl+Space exec "makoctl dismiss"
+
 
 # Floating windows
 for_window [class="Xmessage"] floating enable
@@ -89,22 +91,12 @@ for_window [class="Xeyes"] floating enable
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
-    # or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
 
     # _move_ the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
-    # ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
 #
 # Workspaces:
 #
