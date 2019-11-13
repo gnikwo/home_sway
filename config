@@ -14,7 +14,7 @@ set $KEY_SCREENSHOT_ALT Ctrl+Print
 
 # Idle
 set $TIMEOUT_COMMAND 'zsh -c "ssh-add -D"'
-set $LOCK_COMMAND 'zsh -c "ssh-add -D"; swaylock -C ~/.config/sway/swaylock/config'
+set $LOCK_COMMAND 'zsh -c "ssh-add -D" && swaylock -C ~/.config/sway/swaylock/config'
 set $SLEEP_COMMAND 'systemctl hybrid-sleep'
 
 # Your preferred terminal emulator
@@ -42,7 +42,7 @@ hide_edge_borders both
 gaps inner 0
 gaps outer 0
 
-font incosolata:DejaVu Sans Mono 8
+font inconsolata:DejaVu Sans Mono 8
 focus_follows_mouse no
 
 exec --no-startup-id "waybar -c ~/.config/sway/waybar/config -s ~/.config/sway/waybar/style.css"
@@ -194,6 +194,13 @@ input * {
     xkb_variant bepo,oss,
     xkb_options grp:shift_caps_toggle
 }
+
+client.focused          #268BD2FF #002B36CC #268BD2FF #268BD2FF #002B36FF
+client.focused_inactive #08415CFF #002B36CC #268BD2FF #268BD2FF #002B36FF
+client.unfocused        #08415CFF #002B36CC #268BD2FF #268BD2FF #002B36FF
+client.urgent           #CC2936FF #002B36CC #FFFFFFFF #268BD2FF #002B36FF
+
+client.background       #00000000
 
 include ~/.config/sway/config.d/*.conf
 include /etc/sway/config.d/*
