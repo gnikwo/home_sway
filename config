@@ -12,9 +12,11 @@ set $right r
 set $KEY_SCREENSHOT Print
 set $KEY_SCREENSHOT_ALT Ctrl+Print
 
+set $CLEAN_SSH 'source ~/.ssh/environment && ssh-add -D'
+
 # Idle
-set $TIMEOUT_COMMAND 'zsh -c "ssh-add -D"'
-set $LOCK_COMMAND 'zsh -c "ssh-add -D" && swaylock -C ~/.config/sway/swaylock/config'
+set $TIMEOUT_COMMAND $CLEAN_SSH
+set $LOCK_COMMAND 'swaylock -C ~/.config/sway/swaylock/config'
 set $SLEEP_COMMAND 'systemctl hybrid-sleep'
 
 # Your preferred terminal emulator
@@ -25,7 +27,6 @@ set $term termite
 # set $menu 'dmenu_path | dmenu -b -nb "#002b36" | xargs swaymsg exec'
 
 ### Output configuration
-#
 output * bg ~/.config/themes/digital_space_universe_4k_8k-2560x1600.jpg fill
 
 bindsym $mod+p exec "thunar"
@@ -33,7 +34,7 @@ bindsym $mod+p exec "thunar"
 #xwayland disable
 
 # Lock
-bindsym Ctrl+Escape exec $LOCK_COMMAND
+bindsym Ctrl+Escape exec $CLEAN_SSH; exec $LOCK_COMMAND
 
 # Window borders
 default_border pixel 1
@@ -195,10 +196,10 @@ input * {
     xkb_options grp:shift_caps_toggle
 }
 
-client.focused          #268BD2FF #002B36CC #268BD2FF #268BD2FF #002B36FF
-client.focused_inactive #618697FF #002B36CC #268BD2FF #268BD2FF #002B36FF
-client.unfocused        #08415CFF #002B36CC #268BD2FF #268BD2FF #002B36FF
-client.urgent           #CC2936FF #002B36CC #FFFFFFFF #268BD2FF #002B36FF
+client.focused          #268BD2FF #002B36CC #618697FF #268BD2FF #002B36FF
+client.focused_inactive #618697FF #002B36CC #618697FF #268BD2FF #002B36FF
+client.unfocused        #08415CFF #002B36CC #618697FF #268BD2FF #002B36FF
+client.urgent           #CC2936FF #002B36CC #618697FF #268BD2FF #002B36FF
 
 client.background       #00000000
 
