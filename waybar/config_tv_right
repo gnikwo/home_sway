@@ -1,0 +1,15 @@
+// vim:ft=json
+
+{
+	"layer": "top",
+	"position": "right",
+    "output": ["HDMI-A-2"],
+    "margin-right": 38,
+
+	"modules-left": [
+	],
+	"modules-center": [
+	],
+	"modules-right": [
+	]
+}
