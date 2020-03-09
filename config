@@ -28,7 +28,8 @@ set $term termite
 
 ### Output configuration
 #output * bg "oguri-swaybg ~/.config/themes/digital_spac" fill
-exec --no-startup-id "oguri -c ~/config/sway/oguri.ini"
+exec --no-startup-id "oguri -c ~/.config/sway/oguri.ini"
+exec --no-startup-id "~/.config/sway/oguri/dynamic-background.sh ~/.config/themes/earth 0.1"
 
 
 bindsym $mod+p exec "thunar"
@@ -204,8 +205,8 @@ bindsym XF86AudioLowerVolume exec "pactl set-sink-volume alsa_output.pci-0000_00
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%"
 
 input * {
-    xkb_layout fr,fr,us
-    xkb_variant bepo,oss,
+    xkb_layout fr
+    xkb_variant bepo
     xkb_options grp:shift_caps_toggle
 }
 
