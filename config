@@ -28,7 +28,7 @@ set $term termite
 
 ### Output configuration
 #output * bg "oguri-swaybg ~/.config/themes/digital_spac" fill
-exec --no-startup-id "oguri -c ~/.config/sway/oguri.ini"
+exec --no-startup-id "oguri -c ~/.config/sway/oguri/oguri.ini"
 exec --no-startup-id "~/.config/sway/oguri/dynamic-background.sh ~/.config/themes/earth 0.1"
 
 
