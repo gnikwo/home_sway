@@ -1,1 +1,1 @@
-config.d/*.conf
+configs-enabled/*

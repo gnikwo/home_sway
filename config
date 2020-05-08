@@ -20,7 +20,7 @@ set $LOCK_COMMAND 'swaylock -C ~/.config/sway/swaylock/config'
 set $SLEEP_COMMAND 'systemctl suspend'
 
 # Your preferred terminal emulator
-set $term termite
+set $term "termite"
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
@@ -28,7 +28,7 @@ set $term termite
 
 ### Output configuration
 #output * bg "oguri-swaybg ~/.config/themes/digital_spac" fill
-exec --no-startup-id "oguri -c ~/.config/sway/oguri/oguri.ini"
+exec "oguri -c ~/.config/sway/oguri/oguri.ini"
 
 
 bindsym $mod+p exec "nautilus"
@@ -38,9 +38,6 @@ bindsym $mod+p exec "nautilus"
 # Lock
 bindsym Ctrl+Escape exec $CLEAN_SSH; exec $LOCK_COMMAND
 
-# Window borders
-default_border pixel 1
-hide_edge_borders both
 
 gaps inner 0
 gaps outer 0
@@ -48,8 +45,8 @@ gaps outer 0
 font inconsolata:DejaVu Sans Mono 8
 focus_follows_mouse no
 
-exec --no-startup-id "mako"
-exec --no-startup-id "neworkd-notify"
+exec "mako"
+#exec "networkd-notify"
 bindsym Ctrl+Space exec "makoctl dismiss"
 
 
@@ -62,6 +59,7 @@ for_window [class="Thunar"] floating enable
 for_window [class="okular"] floating enable
 for_window [class="Yubico Authenticator"] floating enable
 for_window [class="Xeyes"] floating enable
+for_window [class="QJackCtl"] floating enable
 
 # Basics:
 #
@@ -105,6 +103,13 @@ for_window [class="Xeyes"] floating enable
 # Workspaces:
 #
     # switch to workspace
+    set $monitor-1 DVI-D-1
+    set $monitor-2 DP-2
+    set $monitor-3 HDMI-A-1
+    set $monitor-4 HDMI-A-2
+
+#    set $find_output swaymsg -t get_tree | jq -r '.nodes[] | select(recurse(.nodes[]?,.floating_nodes[]?) | .focused == true) | .name' | sed -e 's/$monitor-1/A/g' | sed -e 's/$monitor-2/B/g' | sed -e 's/$monitor-3/C/g' | sed -e 's/$monitor-4/D/g'
+
     bindsym $mod+0x22 workspace 1
     bindsym $mod+0xab workspace 2
     bindsym $mod+0xbb workspace 3
@@ -204,10 +209,15 @@ bindsym XF86AudioLowerVolume exec "pactl set-sink-volume alsa_output.pci-0000_00
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5%"
 
 input * {
-    xkb_layout fr
-    xkb_variant bepo
+    xkb_layout fr,fr,us
+    xkb_variant bepo,
     xkb_options grp:shift_caps_toggle
 }
+
+
+# Window borders
+default_border pixel 1
+hide_edge_borders both
 
 client.focused          #268BD2FF #002B36CC #618697FF #268BD2FF #002B36FF
 client.focused_inactive #618697FF #002B36CC #618697FF #268BD2FF #002B36FF
@@ -216,5 +226,5 @@ client.urgent           #CC2936FF #002B36CC #618697FF #268BD2FF #002B36FF
 
 client.background       #00000000
 
-include ~/.config/sway/config.d/*.conf
+include ~/.config/sway/configs-enabled/*.conf
 include /etc/sway/config.d/*

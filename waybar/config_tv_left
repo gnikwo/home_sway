@@ -3,7 +3,7 @@
 {
 	"layer": "top",
 	"position": "left",
-    "output": ["HDMI-A-2"],
+    "output": ["HDMI-A-1"],
     "margin-left": 38,
 
 	"modules-left": [
